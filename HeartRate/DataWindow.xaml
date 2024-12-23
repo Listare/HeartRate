@@ -1,0 +1,27 @@
+﻿<Window x:Class="HeartRate.DataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:local="clr-namespace:HeartRate"
+        mc:Ignorable="d"
+        Title="心率监测" Height="40" Width="200" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Topmost="True"
+        PreviewMouseLeftButtonDown="Window_PreviewMouseLeftButtonDown" Loaded="Window_Loaded">
+  <Window.Resources>
+    <ContextMenu x:Key="TaskbarMenu">
+      <MenuItem Header="开启穿透" Click="MenuSwitchTransparent_Click"/>
+      <MenuItem Header="开启显示平均值" Click="MenuSwitchAverage_Click"/>
+      <MenuItem Header="退出" Click="MenuClose_Click"/>
+    </ContextMenu>
+  </Window.Resources>
+  <Grid>
+    <StackPanel Orientation="Horizontal">
+      <TextBlock x:Name="HeartRateRealtime" Foreground="#E799B0" FontSize="28">连接中</TextBlock>
+      <TextBlock x:Name="HeartRateSplitter" Foreground="#DB7D74" FontSize="28"></TextBlock>
+      <TextBlock x:Name="HeartRateAverage" Foreground="#576690" FontSize="28"></TextBlock>
+    </StackPanel>
+    <Rectangle Fill="Transparent"/>
+    <tb:TaskbarIcon IconSource="icon.ico" ToolTipText="心率" ContextMenu="{DynamicResource TaskbarMenu}"/>
+  </Grid>
+</Window>
